@@ -52,6 +52,11 @@ function statement(invoice, plays) {
     return result;
   }
 
+  // amountFor의 play임시 변수룰 함수로 추출하기를 통한 play 암시변수 제거
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+  }
+
   // 공연료 계산 함수 추출
   function amountFor(aPerformance) {
     let result = 0;
@@ -73,11 +78,6 @@ function statement(invoice, plays) {
         throw new Error(`알 수 없는 장르: ${playFor(aPerformance).type}`);
     }
     return result;
-  }
-
-  // amountFor의 play임시 변수룰 함수로 추출하기를 통한 play 암시변수 제거
-  function playFor(aPerformance) {
-    return plays[aPerformance.playID];
   }
 }
 
